@@ -2,14 +2,14 @@
 	<div class="sidenav">
 		<div class="sector">
 			<p class="sector__title">Каталог</p>
-			<p class="sector__item">Смесители для умывальника</p>
-			<p class="sector__item">Смесители для кухонной мойки</p>
-			<p class="sector__item">Смесители для ванной комнаты и душевых кабин</p>
-			<p class="sector__item">Комплектующие для смесителей</p>
-			<p class="sector__item">Душевые системы</p>
-			<p class="sector__item">Душевые стойки</p>
-			<p class="sector__item">Душевые шланги</p>
-			<p class="sector__item">Гибкая подводка для воды и смесителей</p>
+			<p (click)="navigateToCategory('Для умывальника')" class="sector__item">Смесители для умывальника</p>
+			<p (click)="navigateToCategory('Для кухни')" class="sector__item">Смесители для кухонной мойки</p>
+			<p (click)="navigateToCategory('Смесители для ванной комнаты и душевых кабин')" class="sector__item">Смесители для ванной комнаты и душевых кабин</p>
+			<p (click)="navigateToCategory('Комплектация')" class="sector__item">Комплектующие для смесителей</p>
+			<p (click)="navigateToCategory('Душевая система')" class="sector__item">Душевые системы</p>
+			<p (click)="navigateToCategory('Душевая стойка')" class="sector__item">Душевые стойки</p>
+			<p (click)="navigateToCategory('Шланг душевой')" class="sector__item">Душевые шланги</p>
+			<p (click)="navigateToCategory('Гибкие соединения')" class="sector__item">Гибкая подводка для воды и смесителей</p>
 		</div>
 
 		<div class="sector">

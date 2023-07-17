@@ -146,7 +146,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 		]
 	],
 	[
-		"Душевые системы",
+		"Душевая система",
 		[
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},

@@ -4,16 +4,29 @@
 	<div class="product">
 		<div class="carousel"></div>
 		<div class="properties">
-			<p>Характеристики</p>
+			<p class="properties__title">Характеристики</p>
+			<div class="fields">
+				<ng-container *ngFor="let setting of getSettings('Для кухни')">
+					<div class="field" *ngIf="product">
+						<p class="field__name">{{setting.alias}}</p>
+						<span class="dotted"><span class="field__dotted"></span></span>
+						<p class="field__value">{{ product[setting.name]?product[setting.name]: "null"}}</p>
+					</div>
+				</ng-container>
+			</div>
 
-			<ng-container *ngFor="let setting of getSettings('Для кухни')">
-				<div class="property" *ngIf="product">
-					<p class="property__name">{{setting.alias}}</p>
-					<span class="dotted"><span class="property__dotted"></span></span>
-					<p class="property__value">{{ product[setting.name]?product[setting.name]: "null"}}</p>
+			<p class="properties__title ">Описание</p>
+			<p class="field__description">{{product.opisanie}}</p>
+			<div class="prices">
+				<div class="price">
+					<p>Цена</p>
+					<p>{{product.price}}</p>
 				</div>
-			</ng-container>
-
+				<div class="price">
+					<p>Цена оптом</p>
+					<p>{{product.price_opt}}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

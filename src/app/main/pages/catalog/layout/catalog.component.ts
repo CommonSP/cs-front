@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
+	navigateToCategory(nameCategory: string) {
+		this.router.navigate(['products'], {
+			relativeTo: this.route,
+			queryParams: {
+				mainCategory: nameCategory
+			}
+		})
+	}
 }

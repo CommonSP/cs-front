@@ -26,6 +26,10 @@
 	grid-gap: 20px;
 
 	.sub-category {
+		&:hover{
+			background-image: linear-gradient(#081954, rgb(16, 31, 82));
+		}
+		cursor: pointer;
 		width: 100%;
 		height: 100px;
 		background-image: linear-gradient(#132152, rgba(16, 31, 82, 0.8));

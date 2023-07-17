@@ -31,20 +31,101 @@ export class ProductsComponent implements OnInit {
 
 	subCategories: Map<string, ISubCategories[]> = new Map([
 		[
-			'умывальники',
+			'Для умывальника',
 			[
 				{
 					title: 'Смеситель для умывальника однорукояточный',
 					img: '35abe4b0-7f12-0e69-193d-d74820df14bf.svg',
-					subCategory: 'Залупа'
+					subCategory: 'Однорукояточное'
 				},
 				{
 					title: 'Смеситель для умывальника двухрукояточный',
 					img: 'b5760e89-e155-4cd1-4354-32d2dc9c81fe.svg',
-					subCategory: 'Залупа'
+					subCategory: 'Двухрукояточное'
 				}
 			]
-		]
+		],
+		[
+			'Для кухни',
+			[
+				{
+					title: 'Смеситель для кухонной мойки однорукояточный',
+					img: '35abe4b0-7f12-0e69-193d-d74820df14bf.svg',
+					subCategory: 'Однорукояточное'
+				},
+				{
+					title: 'Смеситель для кухонной мойки двухрукояточный',
+					img: 'b5760e89-e155-4cd1-4354-32d2dc9c81fe.svg',
+					subCategory: 'Двухрукояточное'
+				}
+			]
+		],
+		[
+			'Смесители для ванной комнаты и душевых кабин',
+			[
+				{
+					title: 'Смеситель для ванной и умывальника с дайвотером однорукояточный',
+					img: 'Layer4.svg',
+					subCategory: 'Ванна с дайвотером'
+				},
+				{
+					title: 'Смеситель для ванной и умывальника однорукояточный',
+					img: 'Layer2.svg',
+					subCategory: 'Ванна однорукояточный'
+				},
+				{
+					title: 'Смеситель для ванной и умывальника литой однорукояточный',
+					img: 'Layer3.svg',
+					subCategory: 'Ванна литой корпус'
+				},
+				{
+					title: 'Смеситель для ванной и умывальника литой двухрукояточный',
+					img: 'Layer1.svg',
+					subCategory: 'Ванна двухрукояточный'
+				}
+			]
+		],
+		[
+			'Комплектация',
+			[]
+		],
+		[
+			'Душевая система',
+			[]
+		],
+		[
+			'Душевая стойка',
+			[]
+		],
+		[
+			'Шланг душевой',
+			[]
+		],
+		[
+			'Гибкие соединения',
+			[
+				{
+					title: 'Подводка для воды',
+					img: 'Group125.svg',
+					subCategory: 'Для воды'
+				},
+				{
+					title: 'Подводка для смесителей',
+					img: 'Group126.svg',
+					subCategory: 'Для смесителя'
+				},
+				{
+					title: 'Подводка ГИГАНТ',
+					img: 'Group127.svg',
+					subCategory: 'Гигант'
+				},
+				{
+					title: 'Заливные шланги',
+					img: 'Group128.svg',
+					subCategory: 'Заливной'
+				}
+			]
+		],
 	])
 
 
@@ -77,13 +158,25 @@ export class ProductsComponent implements OnInit {
 	handlePageEvent($event: PageEvent) {
 		this.pageIndex = $event.pageIndex
 		this.limit = $event.pageSize
-		console.log(this.limit)
 		this.offset = this.pageIndex * this.limit
-
 		this.getProducts()
 	}
 
 	openProduct(guid: string) {
 		this.router.navigate(['catalog', 'product', guid],)
+	}
+
+	back() {
+		if(this.subCategory){
+			this.subCategory = ''
+			this.getProducts()
+		}else {
+			this.router.navigate(['catalog'])
+		}
+	}
+
+	getProductsBySubCategory(subCategory: string) {
+		this.subCategory = subCategory
+		this.getProducts()
 	}
 }

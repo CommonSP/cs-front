@@ -1,46 +1,18 @@
-<div class="back">
+<div (click)="back()" class="back">
 	<p>Вернуться назад</p>
 	<img src="assets/images/Group93.png" alt="">
 </div>
 
-<div class="sub-categories">
+<div *ngIf="!subCategory" class="sub-categories">
 
-	<ng-container *ngFor="let subCategory of subCategories.get(mainCategory)">
-		<div class="sub-category">
+	<ng-container *ngFor="let sCategory of subCategories.get(mainCategory)">
+		<div (click)="getProductsBySubCategory(sCategory.subCategory)" class="sub-category">
 			<div class="sub-category__image">
-				<img src="assets/images/{{subCategory.img}}" alt="">
+				<img src="assets/images/{{sCategory.img}}" alt="">
 			</div>
-			<div class="sub-category__name">{{subCategory.title}}</div>
+			<div class="sub-category__name">{{sCategory.title}}</div>
 		</div>
 	</ng-container>
-
-
-	<!--	<div class="sub-category">-->
-	<!--		<div class="sub-category__image">-->
-	<!--			<img  src="assets/images/Group125.svg" alt="">-->
-	<!--		</div>-->
-	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
-	<!--	</div>-->
-
-	<!--	<div class="sub-category">-->
-	<!--		<div class="sub-category__image">-->
-	<!--			<img  src="assets/images/Frame126.svg" alt="">-->
-	<!--		</div>-->
-	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
-	<!--	</div>-->
-	<!--	<div class="sub-category">-->
-	<!--		<div class="sub-category__image">-->
-	<!--			<img  src="assets/images/Group127.svg" alt="">-->
-	<!--		</div>-->
-	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
-	<!--	</div>-->
-
-	<!--	<div class="sub-category">-->
-	<!--		<div class="sub-category__image">-->
-	<!--			<img  src="assets/images/Group128.svg" alt="">-->
-	<!--		</div>-->
-	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
-	<!--	</div>-->
 
 
 </div>

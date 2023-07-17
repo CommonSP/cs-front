@@ -43,6 +43,14 @@
 	grid-auto-rows: 270px;
 	grid-gap: 10px;
 	margin-top: 20px;
+	img {
+		transition: all 0.5s;
+		cursor: pointer;
+	}
+
+	img:hover {
+		filter: contrast(150%);
+	}
 
 	.contact{
 		grid-row: 1/3;
@@ -90,6 +98,12 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
+		cursor: pointer;
+		transition:  background-color 1s;
+
+		&:hover{
+			background-image: linear-gradient(#091954, rgb(16, 31, 82));
+		}
 
 		p{
 			color: white;
