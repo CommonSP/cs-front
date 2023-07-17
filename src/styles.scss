@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/input.scss';
+@import "styles/paginator.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	--size-frame: 1px;
+	--font: 'Ubuntu';
+	--color-frame: #e2df54;
+	--color-zone: #fffc81;
+	--color-font: white;
+
+}
+html, body {
+	height: 100vh!important;
+	background-color: #edeff5;
+	font-family: 'Ubuntu', sans-serif;
+	color: rgba(255, 255, 255, 0.87);
+	overflow-x: hidden;
+	background-image: linear-gradient(#f0f1f4, #132152);
+
+}
+
+.container{
+	padding: 40px 0;
+}
+.test{
+	background-image: url("assets/images/back.png");
+	background-position: bottom;
+	background-color: #101f52;
+}
+
+html, body { height: 100%; }
+

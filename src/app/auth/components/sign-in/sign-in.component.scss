@@ -1,0 +1,38 @@
+.container {
+	position: relative;
+	min-height: 100%;
+	background-image: linear-gradient(#f0f1f4, #132152);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form {
+	width: 500px;
+
+	background-color: #3E4E86;
+
+	padding: 20px 40px;
+	color: white;
+
+	h1{
+		text-align: center;
+		color: #D9D9D9;
+		font-weight: 400;
+		margin-bottom: 20px;
+	}
+	.input-field{
+		margin-bottom: 20px;
+	}
+
+	.btn{
+		margin-top: 20px;
+		float: right;
+
+		button{
+			margin-left: 10px;
+			background-color: #7289D9;
+		}
+	}
+}
+

@@ -1,0 +1,19 @@
+<div class="container">
+	<h3>{{product?.name}}</h3>
+
+	<div class="product">
+		<div class="carousel"></div>
+		<div class="properties">
+			<p>Характеристики</p>
+
+			<ng-container *ngFor="let setting of getSettings('Для кухни')">
+				<div class="property" *ngIf="product">
+					<p class="property__name">{{setting.alias}}</p>
+					<span class="dotted"><span class="property__dotted"></span></span>
+					<p class="property__value">{{ product[setting.name]?product[setting.name]: "null"}}</p>
+				</div>
+			</ng-container>
+
+		</div>
+	</div>
+</div>

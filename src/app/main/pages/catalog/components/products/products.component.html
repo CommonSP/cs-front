@@ -1,0 +1,81 @@
+<div class="back">
+	<p>Вернуться назад</p>
+	<img src="assets/images/Group93.png" alt="">
+</div>
+
+<div class="sub-categories">
+
+	<ng-container *ngFor="let subCategory of subCategories.get(mainCategory)">
+		<div class="sub-category">
+			<div class="sub-category__image">
+				<img src="assets/images/{{subCategory.img}}" alt="">
+			</div>
+			<div class="sub-category__name">{{subCategory.title}}</div>
+		</div>
+	</ng-container>
+
+
+	<!--	<div class="sub-category">-->
+	<!--		<div class="sub-category__image">-->
+	<!--			<img  src="assets/images/Group125.svg" alt="">-->
+	<!--		</div>-->
+	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
+	<!--	</div>-->
+
+	<!--	<div class="sub-category">-->
+	<!--		<div class="sub-category__image">-->
+	<!--			<img  src="assets/images/Frame126.svg" alt="">-->
+	<!--		</div>-->
+	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
+	<!--	</div>-->
+	<!--	<div class="sub-category">-->
+	<!--		<div class="sub-category__image">-->
+	<!--			<img  src="assets/images/Group127.svg" alt="">-->
+	<!--		</div>-->
+	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
+	<!--	</div>-->
+
+	<!--	<div class="sub-category">-->
+	<!--		<div class="sub-category__image">-->
+	<!--			<img  src="assets/images/Group128.svg" alt="">-->
+	<!--		</div>-->
+	<!--		<div class="sub-category__name">Смеситель для умывальника двухрукояточный</div>-->
+	<!--	</div>-->
+
+
+</div>
+
+<div class="products">
+	<ng-container *ngFor="let product of products">
+		<div (click)="openProduct(product.guid)" class="product">
+			<img src="assets/images/Frame127.png" alt="">
+
+			<p>{{product.name}}dsfsdf dsfs df sdf sdf sd f</p>
+
+			<div class="all-prices" >
+				<div class="price">
+					<p>Розничная цена</p>
+					<p>{{product.price}}</p>
+				</div>
+				<div class="price">
+					<p>Оптовая цена</p>
+					<p *ngIf="!authService.isAuth"><span>{{product.price_opt}}</span></p>
+					<img routerLink="/auth/sign-in" matTooltip="Для просмотра неабходимо авторизоваться" *ngIf="authService.isAuth" src="assets/images/149848-80ae3bc5.png" alt="">
+				</div>
+			</div>
+
+		</div>
+	</ng-container>
+
+	<mat-paginator class="custom-paginator"
+				   (page)="handlePageEvent($event)"
+				   [length]="totalCount"
+				   [pageSize]="limit"
+				   [pageSizeOptions]="[10,20,50]"
+				   [pageIndex]="pageIndex"
+				   [showFirstLastButtons]="true"
+
+
+				   aria-label="Выбрать страницу">
+	</mat-paginator>
+</div>

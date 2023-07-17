@@ -1,0 +1,35 @@
+<div class="wrapper">
+	<header>
+		<div class="header">
+			<a routerLink="/home" class="header__logo">
+				<img src="./assets/images/logo1.svg" alt="">
+			</a>
+			<div class="header__search">
+					<input  type="search" >
+			</div>
+			<nav class="header__nav">
+				<a routerLink="/home">Главная</a>
+				<a routerLink="/sales">Акции</a>
+				<a routerLink="/catalog">Каталог</a>
+				<a routerLink="/about-us">О компании</a>
+				<a routerLink="/contacts">Контакты</a>
+			</nav>
+			<a routerLink="/auth/sign-in" class="header__profile">
+				<img src="./assets/images/Maskgroup.svg" alt="">
+			</a>
+		</div>
+	</header>
+
+	<main>
+		<div class="content">
+			<router-outlet></router-outlet>
+		</div>
+	</main>
+
+	<footer>
+		<div class="footer__content">
+			<img src="./assets/images/image.png" alt="">
+		</div>
+	</footer>
+</div>
+

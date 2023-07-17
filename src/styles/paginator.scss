@@ -1,0 +1,17 @@
+.custom-paginator{
+	.mat-select-value {
+		color: white !important;
+	}
+	.mat-select-arrow{
+		color: white !important;
+	}
+	.mat-form-field-underline{
+		background-color: white;
+	}
+	&.mat-paginator{
+
+		background-color: rgba(16, 31, 82, 0.8);
+		border-radius: 5px!important;
+		color: white;
+	}
+}

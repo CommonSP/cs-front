@@ -1,0 +1,21 @@
+.categories {
+	display: grid;
+	grid-template-columns: repeat(4, 207px);
+	grid-auto-rows: 270px;
+	grid-gap: 10px;
+
+	.category {
+		cursor: pointer;
+
+		img {
+			transition: all 0.5s;
+		}
+
+		img:hover {
+			filter: contrast(150%);
+		}
+	}
+
+
+
+}
