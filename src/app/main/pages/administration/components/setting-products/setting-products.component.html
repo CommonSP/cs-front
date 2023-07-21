@@ -1,0 +1,33 @@
+<div class="search">
+	<div class="input-field input-field--medium input-field--black">
+		<mat-form-field appearance="outline" class="example-form-field">
+			<mat-label>Артикул</mat-label>
+			<input required matInput type="text" [(ngModel)]="valueSearch">
+			<button (click)="search(valueSearch)"  matSuffix mat-icon-button aria-label="Clear">
+				<mat-icon>search</mat-icon>
+			</button>
+		</mat-form-field>
+	</div>
+</div>
+
+<div class="products">
+	<ng-container *ngFor="let product of products">
+		<div (click)="openSetting(product.guid)" class="product">
+			<img src="assets/images/example.jpg" alt="">
+
+			<p>{{product.name}}</p>
+
+			<div class="all-prices" >
+				<div class="price">
+					<p>Розничная цена</p>
+					<p>{{product.price}}</p>
+				</div>
+				<div class="price">
+					<p>Оптовая цена</p>
+					<p ><span>{{product.price_opt}}</span></p>
+				</div>
+			</div>
+
+		</div>
+	</ng-container>
+</div>

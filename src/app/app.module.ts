@@ -7,6 +7,7 @@ import {AuthModule} from "./auth/auth.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
 	declarations: [
@@ -17,7 +18,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		HttpClientModule
+		HttpClientModule,
+		MatDialogModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

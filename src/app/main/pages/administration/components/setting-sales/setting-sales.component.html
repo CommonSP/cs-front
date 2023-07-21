@@ -1,0 +1,12 @@
+<div class="sales">
+	<ng-container *ngFor="let sale of sales">
+		<div (click)="openSetting(sale.id)" class="sale">
+			<p>{{sale.name}}</p>
+		</div>
+	</ng-container>
+
+	<div (click)="addSale()" class="sale">
+
+		<p>Добавить акцию</p>
+	</div>
+</div>

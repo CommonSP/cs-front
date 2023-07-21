@@ -7,6 +7,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Для умывальника",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vrash_isliva", alias: "Вращение излива"},
@@ -31,6 +32,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Для кухни",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vrash_isliva", alias: "Вращение излива"},
@@ -53,8 +55,9 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 		]
 	],
 	[
-		"Смесители для ванной комнаты и душевых кабин",
+		"Ванна двухрукояточный",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},
@@ -80,8 +83,150 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 		]
 	],
 	[
-		"Гибкие соединения",
+		"Ванна литой корпус",
 		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},
+			{name: "verh_isl", alias: "Вид и размер верхнего душа"},
+			{name: "vrash_isliva", alias: "Вращение излива"},
+			{name: "vysota_smesitely", alias: "Высота смесителя"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "diamt_leiki", alias: "Диаметр лейки"},
+			{name: "diamt_isliv", alias: "Диаметр излива"},
+			{name: "collection", alias: "Коллекция"},
+			{name: "krep_korpusa", alias: "Крепление корпуса"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "material_isliva", alias: "Материал излива"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "perekluchenie", alias: "Переключение душ излив"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "tip_podklucheniy", alias: "Тип подключения к системе"},
+			{name: "upravlenie", alias: "Управление"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Ванна однорукояточный",
+		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},
+			{name: "verh_isl", alias: "Вид и размер верхнего душа"},
+			{name: "vrash_isliva", alias: "Вращение излива"},
+			{name: "vysota_smesitely", alias: "Высота смесителя"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "diamt_leiki", alias: "Диаметр лейки"},
+			{name: "diamt_isliv", alias: "Диаметр излива"},
+			{name: "collection", alias: "Коллекция"},
+			{name: "krep_korpusa", alias: "Крепление корпуса"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "material_isliva", alias: "Материал излива"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "perekluchenie", alias: "Переключение душ излив"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "tip_podklucheniy", alias: "Тип подключения к системе"},
+			{name: "upravlenie", alias: "Управление"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Ванна с дайвотером",
+		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},
+			{name: "verh_isl", alias: "Вид и размер верхнего душа"},
+			{name: "vrash_isliva", alias: "Вращение излива"},
+			{name: "vysota_smesitely", alias: "Высота смесителя"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "diamt_leiki", alias: "Диаметр лейки"},
+			{name: "diamt_isliv", alias: "Диаметр излива"},
+			{name: "collection", alias: "Коллекция"},
+			{name: "krep_korpusa", alias: "Крепление корпуса"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "material_isliva", alias: "Материал излива"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "perekluchenie", alias: "Переключение душ излив"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "tip_podklucheniy", alias: "Тип подключения к системе"},
+			{name: "upravlenie", alias: "Управление"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Гигант",
+		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vnut_shlang", alias: "Внутренний шланг"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "marka_material_gaiki", alias: "Марка материала гайки"},
+			{name: "material_gaiki", alias: "Материал гайки"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Для воды",
+		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vnut_shlang", alias: "Внутренний шланг"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "marka_material_gaiki", alias: "Марка материала гайки"},
+			{name: "material_gaiki", alias: "Материал гайки"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Для смесителя",
+		[
+			{name: "name", alias: "Название"},
+			{name: "code", alias: "Штрихкод"},
+			{name: "articul", alias: "Артикул"},
+			{name: "vnut_shlang", alias: "Внутренний шланг"},
+			{name: "garanty", alias: "Гарантия"},
+			{name: "marka_material_gaiki", alias: "Марка материала гайки"},
+			{name: "material_gaiki", alias: "Материал гайки"},
+			{name: "material_isdeliy", alias: "Материал изделия"},
+			{name: "mehanism_upravleniy", alias: "Механизм управления смесителя"},
+			{name: "nasnacheniy", alias: "Назначение"},
+			{name: "strana", alias: "Страна"},
+			{name: "tip_isliva", alias: "Тип излива"},
+			{name: "kod_tnvde", alias: "ТН ВЭД код"},
+			{name: "ves", alias: "Вес"},
+		]
+	],
+	[
+		"Заливной",
+		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vnut_shlang", alias: "Внутренний шланг"},
@@ -100,6 +245,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Комплектация",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "material_isdeliy", alias: "Материал изделия"},
@@ -112,6 +258,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Шланг душевой",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "garanty", alias: "Гарантия"},
@@ -127,6 +274,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Душевая стойка",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},
@@ -148,6 +296,7 @@ export const SETTINGS: Map<string, ISettings[]> = new Map([
 	[
 		"Душевая система",
 		[
+			{name: "name", alias: "Название"},
 			{name: "code", alias: "Штрихкод"},
 			{name: "articul", alias: "Артикул"},
 			{name: "vid_duh_leiki", alias: "Вид душевой лейки"},

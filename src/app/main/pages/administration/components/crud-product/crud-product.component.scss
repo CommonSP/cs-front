@@ -1,0 +1,128 @@
+.container{
+	background-color: #101f52;
+	padding: 10px;
+	.settings{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px;
+		width: 100%;
+
+		.setting{
+			width: 100%;
+			margin-top: 10px;
+			.description{
+				height: 185px;
+				resize: none;
+			}
+		}
+
+		.actions{
+			margin-top: 10px;
+			display: flex;
+			width: 200px;
+			justify-content: space-between;
+		}
+	}
+
+	.images{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		img{
+			object-fit: contain;
+			object-position: center;
+		}
+
+		.main-image{
+			width: 300px;
+			height: 300px;
+			padding: 5px;
+			border: 1px solid #edeff5;
+			cursor: pointer;
+
+			border-radius: 5px;
+
+
+
+
+			&_add{
+				border: 1px solid #edeff5;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #edeff5;
+				cursor: pointer;
+				transition: 0.2s;
+
+				&:hover{
+					border: 1px solid #3f51b5;
+					color: #3f51b5;
+
+				}
+				.mat-icon{
+					transform: scale(5);
+				}
+			}
+		}
+
+		.sub-images{
+			margin-top: 10px ;
+			display: grid;
+			grid-gap: 10px;
+			grid-template-columns: repeat(5 , 150px);
+
+			.image{
+				width: 150px;
+				height: 150px;
+
+				border: 1px solid #edeff5;
+				padding: 5px;
+				position: relative;
+
+				.delete{
+					position: absolute;
+					top: 5px;
+					right: 5px;
+					display: none;
+					cursor: pointer;
+					transition: 0.3s;
+
+					&:hover{
+						color: red;
+					}
+				}
+
+				&:hover{
+					.delete{
+						display: block;
+					}
+				}
+
+
+				&_add{
+					border: 1px solid #edeff5;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: #edeff5;
+					cursor: pointer;
+					transition: 0.2s;
+
+					&:hover{
+						border: 1px solid #3f51b5;
+						color: #3f51b5;
+
+
+
+					}
+
+					.mat-icon{
+						transform: scale(3);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,88 @@
+
+
+
+<div class="container">
+	<div class="images">
+		<div *ngIf="mainImage" class="main-image">
+			<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+		</div>
+		<div  *ngIf="!mainImage" class="main-image main-image_add">
+			<mat-icon>add</mat-icon>
+		</div>
+		<div class="sub-images">
+			<div class="image">
+				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+				<mat-icon class="delete"> close</mat-icon>
+			</div>
+			<div class="image">
+				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+				<mat-icon class="delete"> close</mat-icon>
+			</div>
+			<div class="image">
+				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+				<mat-icon class="delete"> close</mat-icon>
+			</div>
+			<div class="image">
+				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+				<mat-icon class="delete"> close</mat-icon>
+			</div>
+			<div class="image">
+				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+				<mat-icon class="delete"> close</mat-icon>
+			</div>
+
+			<div class="image image_add">
+				<mat-icon>add</mat-icon>
+			</div>
+		</div>
+	</div>
+	<form (submit)="save()" [formGroup]="settingsForm"  *ngIf="product" class="settings">
+		<div *ngFor="let setting of settings.get(product.nasnacheniy!)" class="setting">
+			<div class="setting__value">
+				<div class="input-field input-field--medium">
+					<mat-form-field appearance="outline" class="example-form-field">
+						<mat-label>{{setting.alias}}</mat-label>
+						<input  matInput type="text" [formControlName]="setting.name">
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="setting__value">
+				<div class="input-field input-field--medium">
+					<mat-form-field appearance="outline" class="example-form-field">
+						<mat-label>Цена</mat-label>
+						<input required matInput type="text" formControlName="price">
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="setting__value">
+				<div class="input-field input-field--medium">
+					<mat-form-field appearance="outline" class="example-form-field">
+						<mat-label>Цена оптом</mat-label>
+						<input required matInput type="text" formControlName="price_opt">
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="setting__value">
+				<div class="input-field input-field--medium">
+					<mat-form-field appearance="outline" class="example-form-field">
+						<mat-label>Описание</mat-label>
+						<textarea class="description" required matInput type="text" formControlName="opisanie"></textarea>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+
+		<div class="actions">
+			<button type="button" mat-raised-button>Отмена</button>
+			<button type="submit" [disabled]="settingsForm.invalid" mat-raised-button color="primary">Сохранить</button>
+		</div>
+	</form>
+</div>
+
+

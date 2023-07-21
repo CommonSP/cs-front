@@ -1,0 +1,15 @@
+<form [formGroup]="addingForm">
+	<div class="input-field input-field--medium">
+		<mat-form-field appearance="outline" class="example-form-field">
+			<mat-label>Артикул</mat-label>
+			<input required matInput type="text" formControlName="article">
+		</mat-form-field>
+	</div>
+	<p>Статус: <span *ngIf="product.length>0" class="success">Товар найден</span> <span *ngIf="product.length==0" class="warn">Товар не найден</span></p>
+	<div class="actions">
+		<button type="button" (click)="close()" mat-raised-button>Отмена</button>
+		<button type="button"  (click)="add()" [disabled]="product.length==0" mat-raised-button color="primary">Добавить</button>
+	</div>
+</form>
+
+

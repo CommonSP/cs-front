@@ -69,6 +69,13 @@ const routes: Routes = [
 				data: {
 					title: 'Дипломы и техническая документация'
 				}
+			},
+			{
+				path: 'administration',
+				loadChildren: () => import('./pages/administration/administration.module').then(m => m.AdministrationModule),
+				data: {
+					title: 'Дипломы и техническая документация'
+				}
 			}
 
 		]
