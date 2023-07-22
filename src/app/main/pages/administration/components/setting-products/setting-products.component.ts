@@ -13,6 +13,7 @@ export class SettingProductsComponent implements OnInit {
 
 	valueSearch: string = ''
 	products: IProduct[] = []
+
 	constructor(private administrationService: AdministrationService, private router: Router) {
 	}
 
@@ -20,14 +21,15 @@ export class SettingProductsComponent implements OnInit {
 
 	}
 
+
 	search(value: string) {
-		this.administrationService.searchProductByArticle(value).subscribe(res=>{
+		this.administrationService.searchProductByArticle(value).subscribe(res => {
 			this.products = res
 		})
 	}
 
 	openSetting(guid: string) {
-		this.router.navigate(['administration','crud-product', guid])
+		this.router.navigate(['administration', 'crud-product', guid])
 
 	}
 }

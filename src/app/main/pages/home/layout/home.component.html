@@ -1,6 +1,13 @@
 <div class="container-one">
-	<div class="carousel">
-		<img width="100%" src="http://localhost:3000/api/images/" alt="">
+	<div  class="carousel">
+		<div #carousel class="images">
+			<div *ngFor="let sale of sales" class="image">
+				<img  [src]="sale_image + sale.id+'/'+ sale.image" alt="">
+			</div>
+		</div>
+		<div (click)="next()" class="next"><mat-icon>arrow_forward_ios</mat-icon></div>
+		<div (click)="back()" class="back"><mat-icon>arrow_back_ios</mat-icon></div>
+
 	</div>
 	<div class="item garanty">
 		<img class="img-num" height="125" src="assets/images/7.svg">

@@ -1,1 +1,18 @@
-<p>sales works!</p>
+<div class="container">
+	<div class="sales">
+		<div *ngFor="let sale of sales" class="sale">
+			<div class="sale_image">
+				<img [src]="sale_image + sale.id+'/'+ sale.image" alt="">
+			</div>
+			<div (click)="expandPanel(sale.id)" class="sale_hide">
+				<p>Акционные товары</p>
+				<mat-icon>expand_more</mat-icon>
+			</div>
+			<div [id]="sale.id" *ngFor="let product of sale.products" class="products">
+				<div class="product">
+					<p>{{product.name}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,36 +1,15 @@
-
-
-
-<div class="container">
+<div *ngIf="product" class="container">
 	<div class="images">
-		<div *ngIf="mainImage" class="main-image">
-			<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
+		<div *ngIf="product.main_image" class="main-image">
+			<img class="image"  #image *ngIf="!updatedImage" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">
+			<img class="image"  #imageNew *ngIf="updatedImage" width="100%" height="100%" >
 		</div>
-		<div  *ngIf="!mainImage" class="main-image main-image_add">
+		<div  *ngIf="!product.main_image" class="main-image main-image_add">
 			<mat-icon>add</mat-icon>
 		</div>
+		<input #input class="form-control image-input" type="file"
+			   (change)="onChange($event)">
 		<div class="sub-images">
-			<div class="image">
-				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
-				<mat-icon class="delete"> close</mat-icon>
-			</div>
-			<div class="image">
-				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
-				<mat-icon class="delete"> close</mat-icon>
-			</div>
-			<div class="image">
-				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
-				<mat-icon class="delete"> close</mat-icon>
-			</div>
-			<div class="image">
-				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
-				<mat-icon class="delete"> close</mat-icon>
-			</div>
-			<div class="image">
-				<img height="100%" width="100%" src="assets/images/Frame127.png" alt="">
-				<mat-icon class="delete"> close</mat-icon>
-			</div>
-
 			<div class="image image_add">
 				<mat-icon>add</mat-icon>
 			</div>

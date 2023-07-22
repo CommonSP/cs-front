@@ -5,7 +5,15 @@
 				<img src="./assets/images/logo1.svg" alt="">
 			</a>
 			<div class="header__search">
-					<input  type="search" >
+				<div class="input-field input-field--medium">
+					<mat-form-field  appearance="outline" class="example-form-field">
+						<mat-label >Поиск</mat-label>
+						<input  matInput type="text" >
+						<button  matSuffix mat-icon-button >
+							<mat-icon>search</mat-icon>
+						</button>
+					</mat-form-field>
+				</div>
 			</div>
 			<nav class="header__nav">
 				<a routerLink="/home">Главная</a>

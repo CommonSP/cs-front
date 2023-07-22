@@ -18,9 +18,12 @@ export class CrudSaleComponent implements OnInit {
 	constructor(private dialog: MatDialog, private administrationService: AdministrationService, private route: ActivatedRoute) {
 	}
 	@ViewChild('image') image: ElementRef | null = null
+	@ViewChild('imageNew') imageNew: ElementRef | null = null
+	@ViewChild('input') input: ElementRef | null = null
+
 	fReader = new FileReader()
 
-
+	sale_image = SALE_IMAGE
 	isNew: boolean = true
 	saleId: string = ''
 	sale: ISale = {
@@ -31,7 +34,9 @@ export class CrudSaleComponent implements OnInit {
 		image: 'aaaa'
 	}
 	file: File | null = null;
-
+	updatedImage: boolean = false
+//СМ506402
+	//СМ506418
 	formSale: FormGroup = new FormGroup({
 		name: new FormControl<string>(''),
 		discount: new FormControl<number>(0)
@@ -49,16 +54,26 @@ export class CrudSaleComponent implements OnInit {
 		})
 		this.fReader.onload = (e)=> {
 			if(document!==null){
-			 this.image!.nativeElement.src = e!.target!.result
+				if(this.isNew){
+					this.imageNew!.nativeElement.src = e!.target!.result
+				}else {
+					this.image!.nativeElement.src = e!.target!.result
+				}
+
+
 			}
 
 		}
 	}
 
+
+
 	addProduct() {
 		this.dialog.open(AddProductModalComponent, {width: '300px'}).afterClosed().subscribe((product: IProduct | null) => {
 			if (product) {
-				this.sale?.products.push(product)
+				if(this.sale.products){
+					this.sale?.products.push(product)
+				}
 			}
 		})
 	}
@@ -82,13 +97,13 @@ export class CrudSaleComponent implements OnInit {
 		this.sale.name = this.formSale.get('name')?.value
 		this.sale.discount = this.formSale.get('discount')?.value
 		if (this.isNew) {
-
 			this.administrationService.saveSale(this.sale).subscribe((res: any) => {
 				this.onUpload(res.id)
 			})
 		} else {
-
-			this.administrationService.updateSale(this.sale).subscribe(res => {
+			this.administrationService.updateSale(this.sale).subscribe((res:any) => {
+				console.log(res)
+				this.onUpload(res.id)
 			})
 		}
 
@@ -96,9 +111,9 @@ export class CrudSaleComponent implements OnInit {
 
 
 	onUpload(id: string) {
-		if (this.file) {
+		if (this.file && this.updatedImage) {
 			this.administrationService.upload(this.file, id).subscribe(res => {
-					console.log(res)
+				this.updatedImage = false
 				}
 			)
 		}
@@ -107,7 +122,11 @@ export class CrudSaleComponent implements OnInit {
 	onChange(event: any) {
 		this.file = event.target.files[0];
 		this.fReader.readAsDataURL(this.file as Blob);
+		this.updatedImage = true
 	}
 
-	protected readonly SALE_IMAGE = SALE_IMAGE;
+
+	selectImage() {
+		this.input?.nativeElement.click()
+	}
 }

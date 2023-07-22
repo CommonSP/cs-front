@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {IProduct} from "../../../../models/product";
-import {PRODUCTS, SALE_IMAGE, SALES} from "../../../../config/config";
+import {PRODUCT_IMAGE, PRODUCTS, SALE_IMAGE, SALES} from "../../../../config/config";
 import {HttpClient} from "@angular/common/http";
 import {ISale} from "../../../../models/sale";
 import {Observable} from "rxjs";
@@ -32,32 +32,39 @@ export class AdministrationService {
 		return this.http.get<ISale>(SALES + id)
 	}
 
-	saveSale(sale: ISale){
-		const data ={
+	saveSale(sale: ISale) {
+		const data = {
 			name: sale.name,
 			discount: sale.discount,
 			image: sale.image,
-			products: sale.products.map(product=>product.guid)
+			products: sale.products.map(product => product.guid)
 
 		}
-
 		return this.http.post(SALES, {data})
 	}
 
 
 	updateSale(sale: ISale) {
-		const data ={
+		const data = {
 			name: sale.name,
 			discount: sale.discount,
 			image: sale.image,
-			products: sale.products.map(product=>product.guid)
+			products: sale.products ? sale.products.map(product => product.guid) : []
 		}
-		return this.http.put(SALES, {data})
+		return this.http.put(SALES + sale.id, {data})
 	}
 
-	upload(file: File, id:string):Observable<any> {
+	upload(file: File, id: string): Observable<any> {
+		console.log(id)
 		const formData = new FormData();
 		formData.append("file", file);
-		return this.http.post(SALE_IMAGE+id, formData)
+		return this.http.post(SALE_IMAGE + id, formData)
+	}
+
+	uploadMainImageProduct(file: File, id: string): Observable<any> {
+		console.log(id)
+		const formData = new FormData();
+		formData.append("file", file);
+		return this.http.post(PRODUCT_IMAGE + id, formData)
 	}
 }

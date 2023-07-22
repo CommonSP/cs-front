@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './layout/home.component';
 import {HomeRoutingModule} from "./home-routing.module";
+import {HomeService} from "./services/home.service";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -10,7 +12,11 @@ import {HomeRoutingModule} from "./home-routing.module";
 	],
 	imports: [
 		HomeRoutingModule,
-		CommonModule
+		CommonModule,
+		MatIconModule
+	],
+	providers: [
+		HomeService
 	]
 })
 export class HomeModule {

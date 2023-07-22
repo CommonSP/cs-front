@@ -14,16 +14,14 @@
 		</div>
 	</ng-container>
 
-
 </div>
 
 <div class="products">
 	<ng-container *ngFor="let product of products">
 		<div (click)="openProduct(product.guid)" class="product">
-			<img src="assets/images/example.jpg" alt="">
-
+			<img *ngIf="product.main_image" [src]="product_image+ product.guid+'/'+product.main_image" alt="">
+			<img *ngIf="!product.main_image" src="assets/images/Group%20167.png" alt="">
 			<p>{{product.name}}dsfsdf dsfs df sdf sdf sd f</p>
-
 			<div class="all-prices" >
 				<div class="price">
 					<p>Розничная цена</p>

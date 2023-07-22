@@ -69,9 +69,11 @@
 		padding: 0 20px;
 
 		img {
+			object-fit: contain;
+			object-position: center;
 			max-width: 76px;
 			height: 80%;
-			object-fit: contain;
+			width: 60px;
 		}
 
 		& > p {

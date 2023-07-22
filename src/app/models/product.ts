@@ -33,4 +33,5 @@ export interface IProduct{
 	ves?: number
 	category?: string
 	dlina_isliva?: string
+	main_image?: string
 }

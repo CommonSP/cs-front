@@ -6,16 +6,46 @@
 	grid-gap: 10px;
 
 	.carousel {
+		position: relative;
 		grid-row: 1/3;
+		overflow: hidden;
 		border-radius: 5px;
 		background-image: linear-gradient(#132152, rgba(16, 31, 82, 0.8));
+		.images{
+			position: absolute;
+			height: 360px;
+			display: flex;
+			left:0;
+			transition: 0.4s;
+			.image{
+				width: 760px;
+				height: 360px;
+				img{
+					width: 100%;
 
-		img{
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			object-position: center;
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+
 		}
+		.next{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			bottom: 40px;
+			right: 50px;
+		}
+		.back{
+			bottom: 40px;
+			left: 50px;
+			position: absolute;
+			width: 20px;
+			height: 20px;
+		}
+
+
+
 	}
 
 	.item {

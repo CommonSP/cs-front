@@ -1,8 +1,29 @@
 <div class="container">
 	<h3>{{product?.name}}</h3>
-
+	<!--<img class="image" *ngIf="!product.main_image" src="assets/images/Group%20167.png" width="100%" height="100%" >-->
+	<!--	<img class="image"  *ngIf="product.main_image" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">-->
 	<div class="product">
-		<div class="carousel"></div>
+		<div class="carousel">
+			<div class="side_images">
+				<div class="side_image">
+					<img   src="assets/images/Group%20167.png">
+				</div>
+				<div class="side_image">
+					<img   src="assets/images/Group%20167.png">
+				</div>
+				<div class="side_image">
+					<img   src="assets/images/Group%20167.png">
+				</div>
+				<div class="side_image">
+					<img   src="assets/images/Group%20167.png">
+				</div>
+			</div>
+			<div class="main_image">
+				<img class="image"  *ngIf="product.main_image" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">
+				<img  *ngIf="!product.main_image" src="assets/images/Group%20167.png">
+			</div>
+
+		</div>
 		<div class="properties">
 			<p class="properties__title">Характеристики</p>
 			<div class="fields">
@@ -10,7 +31,7 @@
 					<div class="field" *ngIf="product">
 						<p class="field__name">{{setting.alias}}</p>
 						<span class="dotted"><span class="field__dotted"></span></span>
-						<p class="field__value">{{ product[setting.name]?product[setting.name]: "null"}}</p>
+						<p class="field__value">{{ product[setting.name] ? product[setting.name] : "null"}}</p>
 					</div>
 				</ng-container>
 			</div>

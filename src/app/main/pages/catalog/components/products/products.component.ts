@@ -5,6 +5,7 @@ import {Subject} from "rxjs";
 import {IProduct} from "../../../../../models/product";
 import {AuthService} from "../../../../../auth/services/auth.service";
 import {PageEvent} from "@angular/material/paginator";
+import {PRODUCT_IMAGE} from "../../../../../config/config";
 
 interface ISubCategories {
 	title: string,
@@ -18,7 +19,7 @@ interface ISubCategories {
 	styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
+	product_image = PRODUCT_IMAGE
 	mainCategory: string = ''
 	subCategory: string = ''
 	products: IProduct[] = []

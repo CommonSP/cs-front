@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {ISale} from "../../../../models/sale";
+import {HomeService} from "../services/home.service";
+import {SALE_IMAGE} from "../../../../config/config";
 
 @Component({
 	selector: 'app-layout',
@@ -8,10 +11,16 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-	constructor(private router: Router) {
+	constructor(private router: Router, private homeService: HomeService) {
 	}
-
+	@ViewChild('carousel') carousel: ElementRef | null = null
+	indexImage: number = 0
+	sales: ISale[] = []
+	 sale_image =SALE_IMAGE
 	ngOnInit(): void {
+		this.homeService.getSales().subscribe(res=>{
+			this.sales = res
+		})
 	}
 
 	navigateToCategory(nameCategory: string) {
@@ -20,6 +29,29 @@ export class HomeComponent implements OnInit {
 				mainCategory: nameCategory
 			}
 		})
+	}
+
+	next(){
+
+		if(this.sales.length-1 >this.indexImage){
+			this.indexImage +=1
+
+
+		}else {
+			this.indexImage =0
+		}
+		this.carousel!.nativeElement!.style!.left =  `${-760*this.indexImage}px`
+	}
+	back(){
+		if(this.indexImage!==0){
+			this.indexImage -=1
+
+		}else {
+			this.indexImage = this.sales.length-1
+		}
+		this.carousel!.nativeElement!.style!.left =  `${-760*this.indexImage}px`
+		console.log(this.indexImage)
+		console.log(this.sales)
 	}
 
 }

@@ -6,7 +6,8 @@
 	.image{
 		width: 760px;
 		height: 360px;
-		background-color: #e2df54;
+		border: 1px solid #d7d7d7;
+		border-radius: 5px;
 		object-fit: contain;
 		object-position: center;
 	}
@@ -59,5 +60,7 @@
 		}
 	}
 
-
+.image-input{
+	display: none;
+}
 }
