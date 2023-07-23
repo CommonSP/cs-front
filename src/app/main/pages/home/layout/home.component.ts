@@ -50,8 +50,6 @@ export class HomeComponent implements OnInit {
 			this.indexImage = this.sales.length-1
 		}
 		this.carousel!.nativeElement!.style!.left =  `${-760*this.indexImage}px`
-		console.log(this.indexImage)
-		console.log(this.sales)
 	}
 
 }

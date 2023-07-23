@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../../auth/services/auth.service";
+
 
 @Component({
 	selector: 'app-wrapper',
@@ -8,7 +10,7 @@ import {Component, OnInit} from '@angular/core';
 export class WrapperComponent implements OnInit {
 	value: string = ''
 
-	constructor() {
+	constructor(public authService: AuthService) {
 	}
 
 	ngOnInit(): void {

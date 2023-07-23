@@ -4,6 +4,7 @@ import {SalesComponent} from './layout/sales.component';
 import {SalesRoutingModule} from "./sales-routing.module";
 import {MatIconModule} from "@angular/material/icon";
 import {SaleService} from "./services/sale.service";
+import {AuthModule} from "../../../auth/auth.module";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {SaleService} from "./services/sale.service";
     imports: [
         CommonModule,
         SalesRoutingModule,
-        MatIconModule
+        MatIconModule,
+		AuthModule,
     ],
 	providers:[
 		SaleService

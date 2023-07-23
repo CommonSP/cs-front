@@ -28,7 +28,6 @@ export class AdministrationService {
 	}
 
 	getSaleById(id: string) {
-		console.log(id)
 		return this.http.get<ISale>(SALES + id)
 	}
 
@@ -55,14 +54,12 @@ export class AdministrationService {
 	}
 
 	upload(file: File, id: string): Observable<any> {
-		console.log(id)
 		const formData = new FormData();
 		formData.append("file", file);
 		return this.http.post(SALE_IMAGE + id, formData)
 	}
 
 	uploadMainImageProduct(file: File, id: string): Observable<any> {
-		console.log(id)
 		const formData = new FormData();
 		formData.append("file", file);
 		return this.http.post(PRODUCT_IMAGE + id, formData)

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {SaleService} from "../services/sale.service";
 import {ISale} from "../../../../models/sale";
-import {SALE_IMAGE} from "../../../../config/config";
+import {PRODUCT_IMAGE, SALE_IMAGE} from "../../../../config/config";
+import {
+	logExperimentalWarnings
+} from "@angular-devkit/build-angular/src/builders/browser-esbuild/experimental-warnings";
+import {AuthService} from "../../../../auth/services/auth.service";
 
 @Component({
   selector: 'app-layout',
@@ -10,9 +14,10 @@ import {SALE_IMAGE} from "../../../../config/config";
 })
 export class SalesComponent implements OnInit {
 
-  constructor(private saleService: SaleService) { }
+  constructor(private saleService: SaleService, public authService: AuthService) { }
 	sale_image =SALE_IMAGE
 	sales: ISale[] = []
+	product_image = PRODUCT_IMAGE
 
   ngOnInit(): void {
 	  this.saleService.getSales().subscribe(res=>{
@@ -29,5 +34,9 @@ export class SalesComponent implements OnInit {
 				element.style.height ='0'
 			}
 		}
+	}
+
+	openProduct(guid: string) {
+
 	}
 }

@@ -82,14 +82,12 @@ export class CrudSaleComponent implements OnInit {
 		this.administrationService.getSaleById(this.saleId).subscribe(res => {
 			if (res) {
 				this.sale = res
-				console.log(res)
 				this.patchValue()
 			}
 		})
 	}
 
 	patchValue() {
-		console.log(this.sale)
 		this.formSale.patchValue(this.sale)
 	}
 
@@ -102,7 +100,6 @@ export class CrudSaleComponent implements OnInit {
 			})
 		} else {
 			this.administrationService.updateSale(this.sale).subscribe((res:any) => {
-				console.log(res)
 				this.onUpload(res.id)
 			})
 		}

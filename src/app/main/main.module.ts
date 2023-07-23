@@ -6,9 +6,12 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from '@angular/material/menu';
+import {AuthService} from "../auth/services/auth.service";
+import {AuthModule} from "../auth/auth.module";
 
 @NgModule({
-	imports: [CommonModule, MainRoutingModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
+	imports: [CommonModule, MainRoutingModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatMenuModule, AuthModule],
 	declarations: [
 		WrapperComponent
 	],

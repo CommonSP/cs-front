@@ -21,16 +21,16 @@
 		<div (click)="openProduct(product.guid)" class="product">
 			<img *ngIf="product.main_image" [src]="product_image+ product.guid+'/'+product.main_image" alt="">
 			<img *ngIf="!product.main_image" src="assets/images/Group%20167.png" alt="">
-			<p>{{product.name}}dsfsdf dsfs df sdf sdf sd f</p>
+			<p>{{product.name}}</p>
 			<div class="all-prices" >
-				<div class="price">
+				<div  class="price">
 					<p>Розничная цена</p>
 					<p>{{product.price}}</p>
 				</div>
 				<div class="price">
 					<p>Оптовая цена</p>
-					<p *ngIf="!authService.isAuth"><span>{{product.price_opt}}</span></p>
-					<img routerLink="/auth/sign-in" matTooltip="Для просмотра неабходимо авторизоваться" *ngIf="authService.isAuth" src="assets/images/149848-80ae3bc5.png" alt="">
+					<p *ngIf="authService.isAuth"><span>{{product.price_opt}}</span></p>
+					<img routerLink="/auth/sign-in" matTooltip="Для просмотра неабходимо авторизоваться" *ngIf="!authService.isAuth" src="assets/images/149848-80ae3bc5.png" alt="">
 				</div>
 			</div>
 

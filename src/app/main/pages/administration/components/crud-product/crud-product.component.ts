@@ -35,7 +35,6 @@ export class CrudProductComponent implements OnInit {
 			const productGuid = params['guid']
 			this.administrationService.getProductByGuid(productGuid).subscribe(res=>{
 				this.product =res
-				console.log(res)
 				this.initializeForm()
 			})
 		})

@@ -25,7 +25,6 @@ export class AddProductModalComponent implements OnInit {
 	ngOnInit(): void {
 		this.addingForm.get('article')?.valueChanges.pipe(debounceTime(1000), filter(text=>text.length>0)).subscribe(artile=>{
 			this.getProduct(artile)
-			console.log(artile)
 		})
 
 	}
@@ -33,7 +32,6 @@ export class AddProductModalComponent implements OnInit {
 	getProduct(article: string) {
 		this.administrationService.searchProductByArticle(article).subscribe(res => {
 			this.product = res
-			console.log(res)
 		})
 	}
 
