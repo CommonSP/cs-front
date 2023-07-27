@@ -16,6 +16,18 @@
 
 </div>
 
+<mat-paginator class="custom-paginator"
+			   (page)="handlePageEvent($event)"
+			   [length]="totalCount"
+			   [pageSize]="limit"
+			   [pageSizeOptions]="[10,20,50]"
+			   [pageIndex]="pageIndex"
+			   [showFirstLastButtons]="true"
+
+
+			   aria-label="Выбрать страницу">
+</mat-paginator>
+
 <div class="products">
 	<ng-container *ngFor="let product of products">
 		<div (click)="openProduct(product.guid)" class="product">
@@ -37,15 +49,5 @@
 		</div>
 	</ng-container>
 
-	<mat-paginator class="custom-paginator"
-				   (page)="handlePageEvent($event)"
-				   [length]="totalCount"
-				   [pageSize]="limit"
-				   [pageSizeOptions]="[10,20,50]"
-				   [pageIndex]="pageIndex"
-				   [showFirstLastButtons]="true"
 
-
-				   aria-label="Выбрать страницу">
-	</mat-paginator>
 </div>

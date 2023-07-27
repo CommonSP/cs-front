@@ -88,7 +88,38 @@ export class ProductsComponent implements OnInit {
 		],
 		[
 			'Комплектация',
-			[]
+			[
+				{
+					title: 'Резинотехнические изделия',
+					img: 'SubCategory2.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Маховики и ручки',
+					img: 'SubCategory5.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Механизмы управления',
+					img: 'SubCategory4.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Душевые лейки и насадки',
+					img: 'SubCategory6.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Изливы',
+					img: 'SubCategory3.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Запасные части',
+					img: 'SubCategory.png',
+					subCategory: 'Ванна двухрукояточный'
+				}
+			]
 		],
 		[
 			'Душевая система',
@@ -107,22 +138,22 @@ export class ProductsComponent implements OnInit {
 			[
 				{
 					title: 'Подводка для воды',
-					img: 'Group125.svg',
+					img: 'SubCategory125.svg',
 					subCategory: 'Для воды'
 				},
 				{
 					title: 'Подводка для смесителей',
-					img: 'Group126.svg',
+					img: 'SubCategory126.svg',
 					subCategory: 'Для смесителя'
 				},
 				{
 					title: 'Подводка ГИГАНТ',
-					img: 'Group127.svg',
+					img: 'SubCategory127.svg',
 					subCategory: 'Гигант'
 				},
 				{
 					title: 'Заливные шланги',
-					img: 'Group128.svg',
+					img: 'SubCategory128.svg',
 					subCategory: 'Заливной'
 				}
 			]
