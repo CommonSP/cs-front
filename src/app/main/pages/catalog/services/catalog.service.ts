@@ -27,6 +27,15 @@ export class CatalogService {
 	}
 
 	getProductByGuid(guid: string) {
-		return this.http.get<IProduct>(PRODUCTS + guid )
+		return this.http.get<IProduct>(PRODUCTS + guid ).pipe(
+			map((product=>{
+				product.images.forEach(image=>{
+					if(image.category=='main'){
+						product.main_image = image
+					}
+				})
+				return product
+			}))
+		)
 	}
 }

@@ -1,11 +1,11 @@
 <div *ngIf="product" class="container">
 	<div class="images">
-		<div *ngIf="product.main_image" class="main-image">
-			<img class="image"  #image *ngIf="!updatedImage" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">
-			<img class="image"  #imageNew *ngIf="updatedImage" width="100%" height="100%" >
+		<div *ngIf="main_image && !updatedImage" class="main-image">
+			<img class="image" width="100%" height="100%" [src]="product_image+ product.guid+'/'+main_image.name">
+
 		</div>
-		<div  *ngIf="!product.main_image" class="main-image main-image_add">
-			<mat-icon>add</mat-icon>
+		<div *ngIf="updatedImage" class="main-image main-image_add">
+			<img class="image" #imageNew width="100%" height="100%">
 		</div>
 		<input #input class="form-control image-input" type="file"
 			   (change)="onChange($event)">
@@ -15,13 +15,13 @@
 			</div>
 		</div>
 	</div>
-	<form (submit)="save()" [formGroup]="settingsForm"  *ngIf="product" class="settings">
+	<form (submit)="save()" [formGroup]="settingsForm" *ngIf="product" class="settings">
 		<div *ngFor="let setting of settings.get(product.nasnacheniy!)" class="setting">
 			<div class="setting__value">
 				<div class="input-field input-field--medium">
 					<mat-form-field appearance="outline" class="example-form-field">
 						<mat-label>{{setting.alias}}</mat-label>
-						<input  matInput type="text" [formControlName]="setting.name">
+						<input matInput type="text" [formControlName]="setting.name">
 					</mat-form-field>
 				</div>
 			</div>
@@ -51,7 +51,8 @@
 				<div class="input-field input-field--medium">
 					<mat-form-field appearance="outline" class="example-form-field">
 						<mat-label>Описание</mat-label>
-						<textarea class="description" required matInput type="text" formControlName="opisanie"></textarea>
+						<textarea class="description" required matInput type="text"
+								  formControlName="opisanie"></textarea>
 					</mat-form-field>
 				</div>
 			</div>

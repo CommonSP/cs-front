@@ -5,6 +5,10 @@ import {ActivatedRoute} from "@angular/router";
 import {AdministrationService} from "../../services/administration.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {PRODUCT_IMAGE, SALE_IMAGE} from 'src/app/config/config';
+import {IImage} from "../../../../../models/image";
+import {
+	logExperimentalWarnings
+} from "@angular-devkit/build-angular/src/builders/browser-esbuild/experimental-warnings";
 
 @Component({
 	selector: 'app-crud-product',
@@ -20,6 +24,9 @@ export class CrudProductComponent implements OnInit {
 	file: File | null = null;
 	updatedImage: boolean = false
 
+	main_image: IImage | null = null
+	subImages: IImage[] = []
+
 	product_image = PRODUCT_IMAGE
 
 	@ViewChild('image') image: ElementRef | null = null
@@ -31,31 +38,32 @@ export class CrudProductComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.route.params.subscribe(params=>{
+		this.route.params.subscribe(params => {
 			const productGuid = params['guid']
-			this.administrationService.getProductByGuid(productGuid).subscribe(res=>{
-				this.product =res
+			this.administrationService.getProductByGuid(productGuid).subscribe(res => {
+				this.product = res
+				 res.images.forEach(image=>{
+					 if(image.category =='main'){
+						 this.main_image = image
+					 }else {
+						 this.subImages.push(image)
+					 }
+				})
 				this.initializeForm()
 			})
 		})
 
-		this.fReader.onload = (e)=> {
-			if(document!==null){
-				if(this.isNew){
+		this.fReader.onload = (e) => {
+			if (document !== null) {
 					this.imageNew!.nativeElement.src = e!.target!.result
-				}else {
-					this.image!.nativeElement.src = e!.target!.result
-				}
-
-
 			}
 
 		}
 	}
 
-	initializeForm(){
-		if(this.product){
-			this.settings.get(this.product?.nasnacheniy!)?.forEach(setting=>{
+	initializeForm() {
+		if (this.product) {
+			this.settings.get(this.product?.nasnacheniy!)?.forEach(setting => {
 				this.settingsForm.addControl(setting.name, new FormControl(this.product[setting.name]))
 			})
 			this.settingsForm.addControl("opisanie", new FormControl(this.product.opisanie))
@@ -69,21 +77,22 @@ export class CrudProductComponent implements OnInit {
 		if (this.file && this.updatedImage) {
 			this.administrationService.uploadMainImageProduct(this.file, id).subscribe(res => {
 					this.updatedImage = false
+					this.main_image = res
 				}
 			)
 		}
 	}
+
 	protected readonly SALE_IMAGE = SALE_IMAGE;
+
 	onChange(event: any) {
 		this.file = event.target.files[0];
 		this.fReader.readAsDataURL(this.file as Blob);
 		this.updatedImage = true
-		this.product.main_image = 'image'
 	}
 
 	save() {
-		this.administrationService.updateProductByGuid(this.product.guid, this.settingsForm.value ).subscribe(res=>{
-
+		this.administrationService.updateProductByGuid(this.product.guid, this.settingsForm.value).subscribe(res => {
 			this.onUpload(this.product.guid)
 		})
 	}

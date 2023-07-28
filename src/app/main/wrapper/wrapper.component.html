@@ -5,15 +5,23 @@
 				<img src="./assets/images/logo1.svg" alt="">
 			</a>
 			<div class="header__search">
-				<div class="input-field input-field--medium">
+				<form class="input-field input-field--medium">
 					<mat-form-field  appearance="outline" class="example-form-field">
 						<mat-label >Поиск</mat-label>
-						<input  matInput type="text" >
-						<button  matSuffix mat-icon-button >
-							<mat-icon>search</mat-icon>
-						</button>
+						<input
+							matInput
+							type="text"
+							[formControl]="myControl"
+							[matAutocomplete]="auto"
+						>
+
+						<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+							<mat-option (click)="toProduct(option)" *ngFor="let option of filteredOptions | async" [value]="option.articul">
+								{{option.articul}}
+							</mat-option>
+						</mat-autocomplete>
 					</mat-form-field>
-				</div>
+				</form>
 			</div>
 			<nav class="header__nav">
 				<a routerLink="/home">Главная</a>

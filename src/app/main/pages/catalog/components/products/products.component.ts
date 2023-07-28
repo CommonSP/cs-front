@@ -65,23 +65,23 @@ export class ProductsComponent implements OnInit {
 			'Смесители для ванной комнаты и душевых кабин',
 			[
 				{
-					title: 'Смеситель для ванной и умывальника с дайвотером однорукояточный',
-					img: 'Layer4.svg',
+					title: 'Смеситель для ванной и умывальника с дайвотером',
+					img: 'Smes_for_vanna_davoiter.svg',
 					subCategory: 'Ванна с дайвотером'
 				},
 				{
 					title: 'Смеситель для ванной и умывальника однорукояточный',
-					img: 'Layer2.svg',
+					img: 'Smes_for_vanna_odno.svg',
 					subCategory: 'Ванна однорукояточный'
 				},
 				{
 					title: 'Смеситель для ванной и умывальника литой однорукояточный',
-					img: 'Layer3.svg',
+					img: 'Smes_for_vanna_litoyi.svg',
 					subCategory: 'Ванна литой корпус'
 				},
 				{
-					title: 'Смеситель для ванной и умывальника литой двухрукояточный',
-					img: 'Layer1.svg',
+					title: 'Смеситель для ванной и умывальника двухрукояточный',
+					img: 'Smes_for_vanna_dvuch.svg',
 					subCategory: 'Ванна двухрукояточный'
 				}
 			]
@@ -92,32 +92,32 @@ export class ProductsComponent implements OnInit {
 				{
 					title: 'Резинотехнические изделия',
 					img: 'SubCategory2.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'РТИ'
 				},
 				{
 					title: 'Маховики и ручки',
 					img: 'SubCategory5.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Маховики и ручки'
 				},
 				{
 					title: 'Механизмы управления',
 					img: 'SubCategory4.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Механизмы управления'
 				},
 				{
 					title: 'Душевые лейки и насадки',
 					img: 'SubCategory6.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Лейки и насадки для душа'
 				},
 				{
 					title: 'Изливы',
 					img: 'SubCategory3.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Изливы'
 				},
 				{
 					title: 'Запасные части',
 					img: 'SubCategory.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Другое'
 				}
 			]
 		],
@@ -138,22 +138,22 @@ export class ProductsComponent implements OnInit {
 			[
 				{
 					title: 'Подводка для воды',
-					img: 'SubCategory125.svg',
+					img: 'Podvidka_for_water.png',
 					subCategory: 'Для воды'
 				},
 				{
 					title: 'Подводка для смесителей',
-					img: 'SubCategory126.svg',
+					img: 'Podvodka_for_smes.png',
 					subCategory: 'Для смесителя'
 				},
 				{
 					title: 'Подводка ГИГАНТ',
-					img: 'SubCategory127.svg',
+					img: 'Gigant.png',
 					subCategory: 'Гигант'
 				},
 				{
 					title: 'Заливные шланги',
-					img: 'SubCategory128.svg',
+					img: 'Zalivniye_shlangi.png',
 					subCategory: 'Заливной'
 				}
 			]
@@ -182,7 +182,18 @@ export class ProductsComponent implements OnInit {
 
 	getProducts() {
 		this.catalogService.getProducts(this.limit, this.offset, this.mainCategory, this.subCategory).subscribe(res => {
-			this.products = res.items
+			this.products = res.items.map(product=>{
+				if(product.images){
+					product.images.map(image=>{
+						if(image.category == 'main'){
+							product.main_image = image
+						}
+					})
+				}
+
+				return product
+			})
+			console.log(this.products)
 			this.totalCount = res.total_count
 		})
 	}

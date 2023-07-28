@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {CatalogService} from "../../services/catalog.service";
 import {IProduct} from "../../../../../models/product";
 import {ActivatedRoute} from "@angular/router";
-import {ISettings, SETTINGS} from "../../config";
+import {SETTINGS} from "../../config";
 import {PRODUCT_IMAGE} from "../../../../../config/config";
 
 @Component({
@@ -14,18 +14,9 @@ export class ProductComponent implements OnInit, OnDestroy {
 
 	product: any
 	productId: string = ""
-	settings: Map<string, ISettings[]> = SETTINGS
 	product_image = PRODUCT_IMAGE
+
 	constructor(private renderer: Renderer2, private catalogService: CatalogService, private route: ActivatedRoute) {
-	}
-
-	getSettings(category: string) {
-		if (this.settings.has(category)) {
-			return this.settings.get(category)
-		} else {
-			return [] as ISettings[]
-		}
-
 	}
 
 	ngOnInit(): void {
@@ -42,4 +33,6 @@ export class ProductComponent implements OnInit, OnDestroy {
 		this.renderer.removeClass(document.body, "test")
 	}
 
+	protected readonly Object = Object;
+	protected readonly SETTINGS = SETTINGS;
 }

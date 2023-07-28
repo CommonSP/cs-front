@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IProduct} from "../../../../models/product";
-import {PRODUCT_IMAGE, PRODUCTS, SALE_IMAGE, SALES} from "../../../../config/config";
-import {HttpClient} from "@angular/common/http";
+import {IMAGES, PRODUCT_IMAGE, PRODUCTS, SALE_IMAGE, SALES} from "../../../../config/config";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {ISale} from "../../../../models/sale";
 import {Observable} from "rxjs";
 
@@ -60,8 +60,14 @@ export class AdministrationService {
 	}
 
 	uploadMainImageProduct(file: File, id: string): Observable<any> {
+		const params: HttpParams = new HttpParams({
+			fromObject: {
+				id,
+				category: 'main',
+			}
+		})
 		const formData = new FormData();
 		formData.append("file", file);
-		return this.http.post(PRODUCT_IMAGE + id, formData)
+		return this.http.post(IMAGES, formData, {params})
 	}
 }

@@ -9,9 +9,11 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from '@angular/material/menu';
 import {AuthService} from "../auth/services/auth.service";
 import {AuthModule} from "../auth/auth.module";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-	imports: [CommonModule, MainRoutingModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatMenuModule, AuthModule],
+	imports: [CommonModule, MainRoutingModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatMenuModule, AuthModule, MatAutocompleteModule, ReactiveFormsModule],
 	declarations: [
 		WrapperComponent
 	],

@@ -24,11 +24,13 @@ export class SettingProductsComponent implements OnInit {
 
 	search(value: string) {
 		this.administrationService.searchProductByArticle(value).subscribe(res => {
+			console.log(res)
 			this.products = res
 		})
 	}
 
 	openSetting(guid: string) {
+		console.log(guid)
 		this.router.navigate(['administration', 'crud-product', guid])
 
 	}
