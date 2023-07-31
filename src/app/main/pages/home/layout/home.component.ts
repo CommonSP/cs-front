@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ISale} from "../../../../models/sale";
 import {HomeService} from "../services/home.service";
 import {SALE_IMAGE} from "../../../../config/config";
+import {environment} from "../../../../../environments/environment.prod";
 
 @Component({
 	selector: 'app-layout',
@@ -11,14 +12,19 @@ import {SALE_IMAGE} from "../../../../config/config";
 })
 export class HomeComponent implements OnInit {
 
+	@ViewChild('linc') linc: ElementRef | null = null
+	baseurl = environment.baseUrl
+
 	constructor(private router: Router, private homeService: HomeService) {
 	}
+
 	@ViewChild('carousel') carousel: ElementRef | null = null
 	indexImage: number = 0
 	sales: ISale[] = []
-	 sale_image =SALE_IMAGE
+	sale_image = SALE_IMAGE
+
 	ngOnInit(): void {
-		this.homeService.getSales().subscribe(res=>{
+		this.homeService.getSales().subscribe(res => {
 			this.sales = res
 		})
 	}
@@ -31,25 +37,30 @@ export class HomeComponent implements OnInit {
 		})
 	}
 
-	next(){
+	next() {
 
-		if(this.sales.length-1 >this.indexImage){
-			this.indexImage +=1
+		if (this.sales.length - 1 > this.indexImage) {
+			this.indexImage += 1
 
 
-		}else {
-			this.indexImage =0
+		} else {
+			this.indexImage = 0
 		}
-		this.carousel!.nativeElement!.style!.left =  `${-760*this.indexImage}px`
+		this.carousel!.nativeElement!.style!.left = `${-760 * this.indexImage}px`
 	}
-	back(){
-		if(this.indexImage!==0){
-			this.indexImage -=1
 
-		}else {
-			this.indexImage = this.sales.length-1
+	back() {
+		if (this.indexImage !== 0) {
+			this.indexImage -= 1
+
+		} else {
+			this.indexImage = this.sales.length - 1
 		}
-		this.carousel!.nativeElement!.style!.left =  `${-760*this.indexImage}px`
+		this.carousel!.nativeElement!.style!.left = `${-760 * this.indexImage}px`
+	}
+
+	getPdf(){
+		this.linc?.nativeElement.click()
 	}
 
 }

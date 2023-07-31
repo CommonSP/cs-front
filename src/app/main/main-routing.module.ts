@@ -21,6 +21,13 @@ const routes: Routes = [
 				}
 			},
 			{
+				path: 'articles',
+				loadChildren: () => import('./pages/articles/articles.module').then(m => m.ArticlesModule),
+				data: {
+					title: 'Статьи'
+				}
+			},
+			{
 				path: 'about-us',
 				loadChildren: () => import('./pages/about-us/about-us.module').then(m => m.AboutUsModule),
 				data: {

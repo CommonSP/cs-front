@@ -37,9 +37,7 @@
 			<span>E-mail:</span> info@cs-trade.com<br>
 		</h4>
 		<div class="map">
-			<iframe
-				src="https://yandex.ru/map-widget/v1/?um=constructor%3A98469a36c83f57721f146549946ab3a67da4fdc60552efe630c2d7b786903f05&amp;source=constructor"
-				data-map="https://yandex.ru/maps/?um=constructor%3A98469a36c83f57721f146549946ab3a67da4fdc60552efe630c2d7b786903f05&amp;source=constructorLink"></iframe>
+			<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1718112842cc3958db9752f5ea419c6477185d651804633f17a0a1f5fef42e48&amp;source=constructor" width="558" height="408" frameborder="0"></iframe>
 		</div>
 	</div>
 	<div (click)="navigateToCategory('Для умывальника')"class="category">
@@ -69,7 +67,7 @@
 </div>
 
 <div class="container-three">
-	<div class="card">
+	<div (click)="getPdf()" class="card">
 		<img width="147" height="123" src="assets/images/image10.png"/>
 		<p>Каталог PDF</p>
 	</div>
@@ -85,9 +83,11 @@
 		<img width="117" height="109" src="assets/images/image9.png"/>
 		<p>Дипломы и тех документация</p>
 	</div>
-	<div class="card">
+	<div routerLink="/articles" class="card">
 		<img width="117" height="118" src="assets/images/cnfnmb.svg"/>
 		<p>Статьи</p>
 	</div>
 </div>
+
+<a class="linc" #linc target="_blank" download="Catalog.pdf" type="hidden" [href]="baseurl + '/api/imagess/pdf'"></a>
 

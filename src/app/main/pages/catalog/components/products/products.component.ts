@@ -83,6 +83,16 @@ export class ProductsComponent implements OnInit {
 					title: 'Смеситель для ванной и умывальника двухрукояточный',
 					img: 'Smes_for_vanna_dvuch.svg',
 					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Стационарные смесители однорукояточные',
+					img: 'stacionarniy_odno.png',
+					subCategory: 'Ванна двухрукояточный'
+				},
+				{
+					title: 'Стационарные смесители двухрукояточные',
+					img: 'stacionarniy_dvuch.png',
+					subCategory: 'Ванна двухрукояточный'
 				}
 			]
 		],
