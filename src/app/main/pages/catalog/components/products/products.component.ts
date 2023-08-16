@@ -84,16 +84,16 @@ export class ProductsComponent implements OnInit {
 					img: 'Smes_for_vanna_dvuch.svg',
 					subCategory: 'Ванна двухрукояточный'
 				},
-				{
-					title: 'Стационарные смесители однорукояточные',
-					img: 'stacionarniy_odno.png',
-					subCategory: 'Ванна двухрукояточный'
-				},
-				{
-					title: 'Стационарные смесители двухрукояточные',
-					img: 'stacionarniy_dvuch.png',
-					subCategory: 'Ванна двухрукояточный'
-				}
+				// {
+				// 	title: 'Стационарные смесители однорукояточные',
+				// 	img: 'stac_smes_odno.svg',
+				// 	subCategory: 'Стационарные смесители однорукояточные'
+				// },
+				// {
+				// 	title: 'Стационарные смесители двухрукояточные',
+				// 	img: 'stac_smes_dvuch.png',
+				// 	subCategory: 'Стационарные смесители двухрукояточные'
+				// }
 			]
 		],
 		[

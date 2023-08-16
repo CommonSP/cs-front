@@ -4,6 +4,8 @@ import {AuthModule} from "../auth.module";
 @Injectable()
 export class AuthService {
 
+	constructor() { }
+
 	private _isAuth = true
 	get isAuth(): boolean{
 		return localStorage.getItem('login')!==null
@@ -14,12 +16,20 @@ export class AuthService {
 		return localStorage.getItem('login')=='admin12345'
 	}
 
-  constructor() { }
-
 	login(login: string, password: string){
+		if(login=='admin12345' && password=='13244'){
+			localStorage.setItem('login', login)
+			localStorage.setItem('password', password)
+			return true
+		}else if(login=='Optovik2000login' && password=='ProdagiTop1'){
+			localStorage.setItem('login', login)
+			localStorage.setItem('password', password)
+			return true
+		}else {
+			return false
+		}
 
-		localStorage.setItem('login', login)
-		localStorage.setItem('password', password)
+
 	}
 
 	logout() {
