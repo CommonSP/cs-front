@@ -35,7 +35,7 @@
 			</div>
 		<div class="actions">
 			<button type="button" mat-raised-button>Отмена</button>
-			<button type="button"  mat-raised-button color="warn">Удалить</button>
+			<button type="button" (click)="deleteSale()" mat-raised-button color="warn">Удалить</button>
 			<button type="submit"  [disabled]="formSale.invalid"  mat-raised-button color="primary">Сохранить</button>
 		</div>
 	</form>

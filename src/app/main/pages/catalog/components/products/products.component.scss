@@ -38,9 +38,11 @@
 		align-items: center;
 
 		&__image {
-			margin: 0 30px;
 			color: #edeff5;
 			height: 80%;
+			min-width: 140px;
+			text-align: center;
+			margin-right: 20px;
 
 			img {
 				height: 100%;

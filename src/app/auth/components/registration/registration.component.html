@@ -1,59 +1,68 @@
-<div class="container">
-	<form class="form ">
+<div class='container'>
+	<form [formGroup]='registrationForm' class='form'>
 		<h1>Регистрация</h1>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>ФИО</mat-label>
-				<input required matInput type="text">
+				<input formControlName='fio' required matInput type='text'>
 			</mat-form-field>
 		</div>
 
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Телефон</mat-label>
-				<input required matInput type="text">
+				<input formControlName='phone' required matInput type='text'>
 			</mat-form-field>
 		</div>
 
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Почта</mat-label>
-				<input required matInput type="text">
+				<input formControlName='email' required matInput type='text'>
 			</mat-form-field>
 		</div>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Компания</mat-label>
-				<input required matInput type="text">
+				<input formControlName='company' required matInput type='text'>
 			</mat-form-field>
 		</div>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>ИНН</mat-label>
-				<input required matInput type="text">
+				<input formControlName='inn' required matInput type='text'>
 			</mat-form-field>
 		</div>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Тип торговли</mat-label>
-				<input required matInput type="text">
+				<input formControlName='typeTrade' required matInput type='text'>
 			</mat-form-field>
 		</div>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Продукция</mat-label>
-				<input required matInput type="text">
+				<input formControlName='products' required matInput type='text'>
 			</mat-form-field>
 		</div>
-		<div class="input-field input-field--medium">
-			<mat-form-field appearance="outline" class="example-form-field">
+		<div class='input-field input-field--medium'>
+			<mat-form-field appearance='outline' class='example-form-field'>
 				<mat-label>Поле для письма</mat-label>
-				<textarea required matInput type="text"></textarea>
+				<textarea formControlName='message' required matInput type='text'></textarea>
 			</mat-form-field>
 		</div>
 
-		<div class="btn">
-			<button mat-raised-button type="button" color="primary">Зарегистрироваться</button>
+		<div class='btn'>
+			<button (click)='back()' mat-raised-button type='button'>Назад</button>
+			<button
+				[disabled]='registrationForm.invalid'
+				mat-raised-button
+				type='button' color='primary'
+				(click)='registration()'
+			>
+				Зарегистрироваться
+			</button>
+
 		</div>
 
 	</form>
