@@ -43,6 +43,7 @@
 
 				display: flex;
 				align-items: center;
+				justify-content: space-between;
 				padding: 0 10px;
 				border-radius: 5px;
 
@@ -54,6 +55,13 @@
 				&_add{
 					cursor: pointer;
 
+				}
+				&__delete{
+					&:hover{
+						color: red;
+						cursor: pointer;
+						transition: .5s;
+					}
 				}
 
 			}

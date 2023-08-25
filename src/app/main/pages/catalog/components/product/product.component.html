@@ -48,7 +48,8 @@
 				</div>
 				<div class="price">
 					<p>Цена оптом</p>
-					<p>{{product.price_opt}}</p>
+					<p *ngIf='authService.isAuth'>{{product.price_opt}}</p>
+					<img height='20px' routerLink="/auth/sign-in" matTooltip="Для просмотра неабходимо авторизоваться" *ngIf="!authService.isAuth" src="assets/images/149848-80ae3bc5.png" alt="">
 				</div>
 			</div>
 		</div>

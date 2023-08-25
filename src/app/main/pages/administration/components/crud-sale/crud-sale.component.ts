@@ -82,6 +82,12 @@ export class CrudSaleComponent implements OnInit {
 			}
 		})
 	}
+	deleteProduct(guid: string){
+		let index = this.sale.products.findIndex(p=> p.guid==guid)
+		if(index!==-1){
+			this.sale.products.splice(index,1)
+		}
+	}
 
 	getSale() {
 		this.administrationService.getSaleById(this.saleId).subscribe(res => {
@@ -140,4 +146,10 @@ export class CrudSaleComponent implements OnInit {
 	}
 
 
+	cancel() {
+		let isConfirm = confirm('Вы уверены что хотите завершить редактирование?')
+		if(isConfirm){
+			this.router.navigate(['administration', 'setting-sales'])
+		}
+	}
 }

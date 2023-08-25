@@ -59,7 +59,7 @@
 		</div>
 
 		<div class="actions">
-			<button type="button" mat-raised-button>Отмена</button>
+			<button (click)='cancel()' type="button" mat-raised-button>Отмена</button>
 			<button type="submit" [disabled]="settingsForm.invalid" mat-raised-button color="primary">Сохранить</button>
 		</div>
 	</form>

@@ -86,7 +86,7 @@ export class ProductsComponent implements OnInit {
 				},
 				{
 					title: 'Стационарные смесители однорукояточные',
-					img: 'stac_smes_odno.svg',
+					img: 'stac_smes_odno.png',
 					subCategory: 'Стационар однорукаяточный',
 				},
 				{

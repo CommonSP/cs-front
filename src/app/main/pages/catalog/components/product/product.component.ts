@@ -4,6 +4,7 @@ import { IProduct } from '../../../../../models/product'
 import { ActivatedRoute, Router } from '@angular/router'
 import { SETTINGS } from '../../config'
 import { PRODUCT_IMAGE } from '../../../../../config/config'
+import { AuthService } from '../../../../../auth/services/auth.service'
 
 @Component({
 	selector: 'app-product',
@@ -22,7 +23,8 @@ export class ProductComponent implements OnInit, OnDestroy {
 	constructor(private renderer: Renderer2,
 				private catalogService: CatalogService,
 				private route: ActivatedRoute,
-				private router: Router) {
+				private router: Router,
+				public authService: AuthService) {
 	}
 
 	ngOnInit(): void {
