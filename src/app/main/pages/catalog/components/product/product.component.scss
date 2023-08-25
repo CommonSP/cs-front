@@ -1,4 +1,17 @@
+.back{
+	display: flex;
+	align-items: center;
+	height: 40px;
+	margin-left: 10px;
+	cursor: pointer;
+	width: 100px;
+
+	&:hover{
+		color: #7789c7;
+	}
+}
 .container {
+	padding: 0 10px;
 	> h3 {
 		width: 600px;
 		word-wrap: break-word;

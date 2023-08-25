@@ -1,7 +1,10 @@
+<div (click)='back()' class='back'>
+	<mat-icon>keyboard_arrow_left</mat-icon>
+	<p>Назад</p>
+</div>
 <div *ngIf="product" class="container">
+
 	<h3>{{product?.name}}</h3>
-	<!--<img class="image" *ngIf="!product.main_image" src="assets/image/Group%20167.png" width="100%" height="100%" >-->
-	<!--	<img class="image"  *ngIf="product.main_image" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">-->
 	<div class="product">
 		<div class="carousel">
 			<div class="side_images">

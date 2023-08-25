@@ -33,7 +33,11 @@
 		<div (click)="openProduct(product.guid)" class="product">
 			<img *ngIf="product.main_image" [src]="product_image+ product.guid+'/'+product.main_image.name" alt="">
 			<img *ngIf="!product.main_image" src="assets/images/Group%20167.png" alt="">
-			<p>{{product.name}}</p>
+			<div class='name_article'>
+				<p>{{product.name}}</p>
+				<p class='article'>Артикул: {{product.articul}}</p>
+			</div>
+
 			<div class="all-prices" >
 				<div  class="price">
 					<p>Розничная цена</p>
