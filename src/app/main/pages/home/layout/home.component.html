@@ -1,12 +1,16 @@
 <div class="container-one">
-	<div  class="carousel">
+	<div class="carousel">
 		<div #carousel class="images">
 			<div *ngFor="let sale of sales" class="image">
-				<img  [src]="sale_image + sale.id+'/'+ sale.image" alt="">
+				<img [src]="sale_image + sale.id+'/'+ sale.image" alt="">
 			</div>
 		</div>
-		<div (click)="next()" class="next"><mat-icon>arrow_forward_ios</mat-icon></div>
-		<div (click)="back()" class="back"><mat-icon>arrow_back_ios</mat-icon></div>
+		<div (click)="next()" class="next">
+			<mat-icon>arrow_forward_ios</mat-icon>
+		</div>
+		<div (click)="back()" class="back">
+			<mat-icon>arrow_back_ios</mat-icon>
+		</div>
 
 	</div>
 	<div class="item garanty">
@@ -31,16 +35,19 @@
 			<span>Производство</span>
 			<br>
 			<span>Адрес</span>&nbsp;<span>склада</span>
-			<span>: </span> 142116, Московская область, г.о. Подольск, пос. Сельхозтехника, Домодедовское шоссе, д. 20 «Д» , стр. 29 <br>
+			<span>: </span> 142116, Московская область, г.о. Подольск, пос. Сельхозтехника, Домодедовское шоссе, д. 20
+			«Д» , стр. 29 <br>
 			<span>Телефон:</span> +7 495 775 7017 (многоканальный)<br>
 			<span>E-mail:</span> info@cs-trade.com<br>
-			<span>Telegram: </span><a href="https://t.me/CS_trade_official">https://t.me/CS_trade_official</a>  <br>
+			<span>Telegram: </span><a href="https://t.me/CS_trade_official">https://t.me/CS_trade_official</a> <br>
 		</h4>
 		<div class="map">
-			<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1718112842cc3958db9752f5ea419c6477185d651804633f17a0a1f5fef42e48&amp;source=constructor" width="558" height="408" frameborder="0"></iframe>
+			<iframe
+				src="https://yandex.ru/map-widget/v1/?um=constructor%3A1718112842cc3958db9752f5ea419c6477185d651804633f17a0a1f5fef42e48&amp;source=constructor"
+				width="558" height="408" frameborder="0"></iframe>
 		</div>
 	</div>
-	<div (click)="navigateToCategory('Для умывальника')"class="category">
+	<div (click)="navigateToCategory('Для умывальника')" class="category">
 		<img height="270" width="202" src="assets/images/1.png" alt="">
 	</div>
 	<div (click)="navigateToCategory('Для кухни')" class="category">
@@ -66,6 +73,11 @@
 	</div>
 </div>
 
+<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/RBHKle_yQGQ?si=a5qVqd1-WJTe8rey"
+		title="YouTube video player" frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allowfullscreen></iframe>
+
 <div class="container-three">
 	<div (click)="getPdf()" class="card">
 		<img width="147" height="123" src="assets/images/image10.png"/>
@@ -79,7 +91,7 @@
 		<img width="103" height="119" src="assets/images/image8.png"/>
 		<p>Гарантийное обязательство</p>
 	</div>
-	<div  class="card">
+	<div class="card">
 		<img width="117" height="109" src="assets/images/pngwing 8.png"/>
 		<p [style.font-size]="'1.2rem'">Скачать каталог рекомендованных цен</p>
 	</div>
