@@ -107,12 +107,12 @@ export class ProductsComponent implements OnInit {
 				{
 					title: 'Маховики и ручки',
 					img: 'SubCategory5.png',
-					subCategory: 'Маховики и ручки',
+					subCategory: 'Ручки и маховики',
 				},
 				{
 					title: 'Механизмы управления',
 					img: 'SubCategory4.png',
-					subCategory: 'Механизмы управления',
+					subCategory: 'Механизм управления',
 				},
 				{
 					title: 'Душевые лейки и насадки',
@@ -127,7 +127,7 @@ export class ProductsComponent implements OnInit {
 				{
 					title: 'Запасные части',
 					img: 'SubCategory.png',
-					subCategory: 'Другое',
+					subCategory: 'Запасные части',
 				},
 			],
 		],
