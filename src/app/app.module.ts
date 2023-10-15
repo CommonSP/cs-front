@@ -7,6 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import {HttpClientModule} from "@angular/common/http";
 import {MatDialogModule} from "@angular/material/dialog";
 import {ToastrModule} from "ngx-toastr";
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -19,6 +21,8 @@ import {ToastrModule} from "ngx-toastr";
 		BrowserAnimationsModule,
 		HttpClientModule,
 		MatDialogModule,
+		MatCheckboxModule,
+		FormsModule,
 		ToastrModule.forRoot()
 	],
 	providers: [],

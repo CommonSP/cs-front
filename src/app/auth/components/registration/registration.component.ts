@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../../services/auth.service'
 import { ToastrService } from 'ngx-toastr'
 import { Route, Router } from '@angular/router'
+import {MatDialog} from "@angular/material/dialog";
+import {AgreementComponent} from "../agreement/agreement.component";
 
 @Component({
 	selector: 'app-registration',
@@ -13,8 +15,10 @@ export class RegistrationComponent implements OnInit {
 
 	constructor(private authService: AuthService,
 				private toastrService: ToastrService,
-				private router: Router) {
+				private router: Router,
+				private dialog: MatDialog) {
 	}
+	approve = true
 
 	registrationForm: FormGroup = new FormGroup({
 		fio: new FormControl(null),
@@ -25,6 +29,7 @@ export class RegistrationComponent implements OnInit {
 		typeTrade: new FormControl(null),
 		products: new FormControl(null),
 		message: new FormControl(null),
+		approve: new FormControl(false, Validators.requiredTrue),
 	})
 
 	ngOnInit(): void {
@@ -45,4 +50,8 @@ export class RegistrationComponent implements OnInit {
 		this.router.navigate(['sign-in'])
 	}
 
+	openDialog(event: MouseEvent) {
+		event.preventDefault()
+		this.dialog.open(AgreementComponent, {width: "1200px", height: "800px"})
+	}
 }

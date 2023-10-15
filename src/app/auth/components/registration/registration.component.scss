@@ -39,4 +39,15 @@
 		}
 	}
 }
+.approve{
+	display: flex;
+	&-text{
+		color: #8b9cfa;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	&-checkbox{
+		margin-right: 10px;
+	}
+}
 

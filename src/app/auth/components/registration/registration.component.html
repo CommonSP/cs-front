@@ -51,6 +51,13 @@
 				<textarea formControlName='message' required matInput type='text'></textarea>
 			</mat-form-field>
 		</div>
+		<div class='input-field input-field--medium'>
+			<div class="approve">
+				<mat-checkbox formControlName='approve' class="approve-checkbox"></mat-checkbox>
+				<p>Я согласен на обработку моих персональных данных в соответствии с <span (click)="openDialog($event)" class="approve-text">Условиями </span></p>
+			</div>
+		</div>
+
 
 		<div class='btn'>
 			<button (click)='back()' mat-raised-button type='button'>Назад</button>
