@@ -125,5 +125,21 @@
 				height: 215px;
 			}
 		}
+		&__images_dip{
+
+			margin: 30px 0;
+			display: grid;
+			grid-template-columns: 2fr 3fr 2fr 2fr;
+			grid-template-rows: repeat(2, 370px);
+			grid-gap: 30px;
+
+			img{
+				width: 100%;
+				object-fit: contain;
+			}
+		}
+		.tech{
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
 	}
 }

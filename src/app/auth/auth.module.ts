@@ -9,12 +9,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { AgreementComponent } from './components/agreement/agreement.component';
 
 
 @NgModule({
 	declarations: [
 		SignInComponent,
-		RegistrationComponent
+		RegistrationComponent,
+  AgreementComponent
 	],
 	imports: [
 		AuthRoutingModule,
@@ -23,7 +26,8 @@ import {AuthService} from "./services/auth.service";
 		MatIconModule,
 		MatFormFieldModule,
 		MatButtonModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		MatCheckboxModule
 	],
 	providers: [AuthService],
 	exports: []

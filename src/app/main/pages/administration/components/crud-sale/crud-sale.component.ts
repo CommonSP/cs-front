@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddProductModalComponent} from "../add-product-modal/add-product-modal.component";
 import {AdministrationService} from "../../services/administration.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ISale} from "../../../../../models/sale";
 import {IProduct} from "../../../../../models/product";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -15,7 +15,12 @@ import {SALE_IMAGE} from "../../../../../config/config";
 })
 export class CrudSaleComponent implements OnInit {
 
-	constructor(private dialog: MatDialog, private administrationService: AdministrationService, private route: ActivatedRoute) {
+	constructor(
+		private dialog: MatDialog,
+		private administrationService: AdministrationService,
+		private route: ActivatedRoute,
+		private router: Router
+	) {
 	}
 	@ViewChild('image') image: ElementRef | null = null
 	@ViewChild('imageNew') imageNew: ElementRef | null = null
@@ -77,6 +82,12 @@ export class CrudSaleComponent implements OnInit {
 			}
 		})
 	}
+	deleteProduct(guid: string){
+		let index = this.sale.products.findIndex(p=> p.guid==guid)
+		if(index!==-1){
+			this.sale.products.splice(index,1)
+		}
+	}
 
 	getSale() {
 		this.administrationService.getSaleById(this.saleId).subscribe(res => {
@@ -84,6 +95,11 @@ export class CrudSaleComponent implements OnInit {
 				this.sale = res
 				this.patchValue()
 			}
+		})
+	}
+	deleteSale(){
+		this.administrationService.deleteSale(this.sale.id).subscribe(res=>{
+			this.router.navigate(['administration','setting-sales'])
 		})
 	}
 
@@ -97,10 +113,12 @@ export class CrudSaleComponent implements OnInit {
 		if (this.isNew) {
 			this.administrationService.saveSale(this.sale).subscribe((res: any) => {
 				this.onUpload(res.id)
+				this.router.navigate(['administration','setting-sales'])
 			})
 		} else {
 			this.administrationService.updateSale(this.sale).subscribe((res:any) => {
 				this.onUpload(res.id)
+				this.router.navigate(['administration','setting-sales'])
 			})
 		}
 
@@ -125,5 +143,13 @@ export class CrudSaleComponent implements OnInit {
 
 	selectImage() {
 		this.input?.nativeElement.click()
+	}
+
+
+	cancel() {
+		let isConfirm = confirm('Вы уверены что хотите завершить редактирование?')
+		if(isConfirm){
+			this.router.navigate(['administration', 'setting-sales'])
+		}
 	}
 }

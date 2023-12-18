@@ -70,4 +70,8 @@ export class AdministrationService {
 		formData.append("file", file);
 		return this.http.post(IMAGES, formData, {params})
 	}
+
+	deleteSale(id: string) {
+		return this.http.delete(SALES + id)
+	}
 }

@@ -10,6 +10,7 @@ import {AuthService} from "../../../auth/services/auth.service";
 import {AuthModule} from "../../../auth/auth.module";
 import {MatPaginatorIntl, MatPaginatorModule} from "@angular/material/paginator";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { MatIconModule } from '@angular/material/icon'
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 		CommonModule,
 		AuthModule,
 		MatPaginatorModule,
-		MatTooltipModule
+		MatTooltipModule,
+		MatIconModule,
 	],
 	providers: [CatalogService, MatPaginatorIntl]
 })

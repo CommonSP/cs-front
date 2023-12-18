@@ -4,26 +4,30 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
-	selector: 'app-sign-in',
-	templateUrl: './sign-in.component.html',
-	styleUrls: ['./sign-in.component.scss']
+    selector: 'app-sign-in',
+    templateUrl: './sign-in.component.html',
+    styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-	value = ''
+    value = ''
+    isLogin = true
 
-	constructor(private authService: AuthService, private router: Router) {
-	}
-	authForm: FormGroup = new FormGroup({
-		login: new FormControl(),
-		password: new FormControl()
-	})
-	ngOnInit(): void {
-	}
+    constructor(private authService: AuthService, private router: Router) {
+    }
 
-	login(){
-		this.authService.login(this.authForm.get('login')?.value, this.authForm.get('password')?.value)
-		this.router.navigate([''])
-	}
+    authForm: FormGroup = new FormGroup({
+        login: new FormControl(),
+        password: new FormControl()
+    })
+
+    ngOnInit(): void {
+    }
+
+    login() {
+        this.isLogin = this.authService.login(this.authForm.get('login')?.value, this.authForm.get('password')?.value)
+        if (this.isLogin)
+            this.router.navigate([''])
+    }
 
 
 }

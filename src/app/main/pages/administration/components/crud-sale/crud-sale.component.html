@@ -27,6 +27,7 @@
 				<h3>Товары в акции</h3>
 				<div *ngFor="let product of sale?.products" class="product">
 					<p>{{product.name}}</p>
+					<mat-icon class='product__delete' (click)='deleteProduct(product.guid)'>cancel</mat-icon>
 				</div>
 
 				<div (click)="addProduct()" class="product product_add">
@@ -34,8 +35,8 @@
 				</div>
 			</div>
 		<div class="actions">
-			<button type="button" mat-raised-button>Отмена</button>
-			<button type="button"  mat-raised-button color="warn">Удалить</button>
+			<button type="button" (click)='cancel()' mat-raised-button>Отмена</button>
+			<button type="button" (click)="deleteSale()" mat-raised-button color="warn">Удалить</button>
 			<button type="submit"  [disabled]="formSale.invalid"  mat-raised-button color="primary">Сохранить</button>
 		</div>
 	</form>

@@ -1,7 +1,10 @@
+<div (click)='back()' class='back'>
+	<mat-icon>keyboard_arrow_left</mat-icon>
+	<p>Назад</p>
+</div>
 <div *ngIf="product" class="container">
+
 	<h3>{{product?.name}}</h3>
-	<!--<img class="image" *ngIf="!product.main_image" src="assets/image/Group%20167.png" width="100%" height="100%" >-->
-	<!--	<img class="image"  *ngIf="product.main_image" width="100%" height="100%" [src]="product_image+ product.guid+'/'+product.main_image">-->
 	<div class="product">
 		<div class="carousel">
 			<div class="side_images">
@@ -45,7 +48,8 @@
 				</div>
 				<div class="price">
 					<p>Цена оптом</p>
-					<p>{{product.price_opt}}</p>
+					<p *ngIf='authService.isAuth'>{{product.price_opt}}</p>
+					<img height='20px' routerLink="/auth/sign-in" matTooltip="Для просмотра неабходимо авторизоваться" *ngIf="!authService.isAuth" src="assets/images/149848-80ae3bc5.png" alt="">
 				</div>
 			</div>
 		</div>
