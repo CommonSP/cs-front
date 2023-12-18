@@ -87,12 +87,12 @@ export class ProductsComponent implements OnInit {
 				{
 					title: 'Стационарные смесители однорукояточные',
 					img: 'stacionarniy_odno.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Ванна стационарный однорукояточный'
 				},
 				{
 					title: 'Стационарные смесители двухрукояточные',
 					img: 'stacionarniy_dvuch.png',
-					subCategory: 'Ванна двухрукояточный'
+					subCategory: 'Ванна стационарный двухрукояточный'
 				}
 			]
 		],
